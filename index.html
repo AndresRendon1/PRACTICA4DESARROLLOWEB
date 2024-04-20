@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Meal API</title>
+    <link rel="icon" href="data:image/png;base64,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" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Catamaran:wght@200&family=Courgette&family=Dancing+Script:wght@700&family=Edu+TAS+Beginner:wght@700&family=Lato:wght@300;900&family=Mukta:wght@700&family=Mulish:wght@300&family=Open+Sans&family=PT+Sans:ital,wght@1,700&family=Poppins:wght@300&family=Raleway:wght@100&family=Roboto&family=Roboto+Condensed:wght@700&family=Roboto+Slab&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <div class="container">
         <nav>
             <div class="logo">
-                <h1>The Meal API</h1>
+                <h1><i class="fas fa-hamburger"></i> The Meal API</h1>
             </div>
-    <div class="container">
-        <div class="search">
-            <input type="text" id="searchInput" placeholder="Search for meal...">
-            <button id="searchButton"><img src="https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/91f34cc8-d5b1-4d66-4d1b-65b1a5205a00/preview"  width="20" height="20" alt="Search"></button>
-            <select id="searchOptions">
-            <option value="name">Name</option>
-            <option value="category">Category</option>
-            <option value="ingredient">Ingredient</option>
-            <option value="area">Area</option>
-            </select>
-        </div>
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search for meal...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+                <select id="searchOptions">
+                    <option value="name">Name</option>
+                    <option value="category">Category</option>
+                    <option value="ingredient">Ingredient</option>
+                    <option value="area">Area</option>
+                </select>
+            </div>
+        </nav>
         <div id="result"></div>
     </div>
     <script src="index.js"></script>
