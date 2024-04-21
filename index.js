@@ -1,7 +1,7 @@
 let searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", function() {
     let searchInput = document.getElementById("searchInput").value;
-    let selectElement = document.getElementById("searchOptions"); // Corrección aquí
+    let selectElement = document.getElementById("searchOptions"); 
     let searchCriteria = selectElement.options[selectElement.selectedIndex].value;
 
     switch (searchCriteria) {
@@ -65,3 +65,49 @@ function fetchMeals(url) {
         })
         .catch(error => console.log(error));
 }
+
+function fetchMeals(url) {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let meals = data.meals;
+            let resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "";
+
+            if (!meals) {
+                resultDiv.innerHTML = "<p>No se encontraron resultados</p>";
+                return;
+            }
+
+            // Limitar la cantidad de resultados a mostrar
+            meals = meals.slice(0, 18);
+
+            meals.forEach(meal => {
+                let mealCard = document.createElement("div");
+                mealCard.classList.add("meal-card");
+                mealCard.innerHTML = `
+                    <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+                    <p>${meal.strMeal}</p>
+                `;
+                resultDiv.appendChild(mealCard);
+
+                mealCard.addEventListener("click", () => {
+                    loadMealInfo(meal.idMeal);
+                });
+            });
+        })
+        .catch(error => console.log(error));
+}
+
+function loadMealInfo(mealId) {
+    let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let meal = data.meals[0];
+            // Aquí debes mostrar la información detallada del plato, por ejemplo:
+            alert(`Información detallada de ${meal.strMeal}:\n${meal.strInstructions}`);
+        })
+        .catch(error => console.log(error));
+}
+
